@@ -24,10 +24,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { GenreComponent } from './genre/genre.component';
 import { DirectorComponent } from './director/director.component';
 import { DetailsComponent } from './details/details.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -41,6 +44,8 @@ const appRoutes: Routes = [
     GenreComponent,
     DirectorComponent,
     DetailsComponent,
+    UserProfileComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
