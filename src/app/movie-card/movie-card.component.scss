@@ -1,30 +1,158 @@
-/* src/app/movie-card/movie-card.component.css */
-
-img {
-  width: 300px;
-  height: auto;
-  margin: auto;
-}
-
-/* Default styles */
-
 .movie-card-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-block: 30px;
+  gap: 15px; /* Remove gap between rows */
+  margin: 0; /* Remove margin */
+}
+
+mat-card-title {
+  font-size: 22px;
+}
+
+mat-card-subtitle {
+  font-size: 18px;
 }
 
 .movie-card {
-  flex: 1 1 auto;
-  margin: 10px;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(30% - 15px);
+  flex-shrink: 0;
+  margin-bottom: 30px; /* Add bottom margin to create space between rows */
 }
 
-/* Styles for small screens */
-@media (max-width: 599px) {
-  .movie-card {
-    margin: 3px;
-    margin-top: 60px;
-  }
+.movie-card-header {
+  height: 13%;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+img {
+  width: auto;
+  height: 400px;
+  margin: auto;
+}
+
+.movie-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 18px;
+}
+
+mat-icon {
+  padding: 10px;
+  font-size: 23px;
+}
+
+/* Small screens (smaller than 640px) */
+@media screen and (max-width: 639px) {
   .movie-card-container {
-    flex-direction: column; /* add this property to display the cards in a column on small screens */
+    margin: 15px;
+    padding-block: 20px;
+  }
+
+  mat-card-title {
+    font-size: 18px;
+  }
+
+  mat-card-subtitle {
+    font-size: 14px;
+  }
+
+  .movie-card {
+    width: 100%;
+  }
+
+  img {
+    height: auto;
+    max-height: 400px;
+    margin: auto;
+  }
+
+  button {
+    font-size: 18px;
+  }
+
+  mat-icon {
+    padding: 10px;
+    font-size: 21px;
+  }
+}
+
+/* Medium screens (641px to 1007px) */
+@media screen and (min-width: 641px) and (max-width: 1007px) {
+  .movie-card-container {
+    margin: 30px;
+    padding-block: 25px;
+  }
+
+  mat-card-title {
+    font-size: 20px;
+  }
+
+  mat-card-subtitle {
+    font-size: 16px;
+  }
+
+  .movie-card {
+    width: 80%;
+    flex-basis: calc(50% - 15px);
+  }
+
+  img {
+    height: auto;
+    max-height: 400px;
+    margin: auto;
+  }
+
+  button {
+    font-size: 20px;
+  }
+
+  mat-icon {
+    padding: 25px;
+    font-size: 25px;
+  }
+}
+
+/* Large screens (1008px and larger) */
+@media screen and (min-width: 1008px) {
+  .movie-card-container {
+    margin: 30px;
+    padding-block: 30px;
+  }
+
+  mat-card-title {
+    font-size: 21px;
+  }
+
+  mat-card-subtitle {
+    font-size: 15px;
+  }
+
+  .movie-card {
+    width: 300px;
+  }
+
+  img {
+    height: 400px;
+    max-height: none;
+    margin: auto;
+  }
+
+  button {
+    font-size: 18px;
+  }
+
+  mat-icon {
+    padding: 10px;
+    font-size: 23px;
   }
 }

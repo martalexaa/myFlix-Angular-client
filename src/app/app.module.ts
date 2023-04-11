@@ -26,11 +26,17 @@ import { DirectorComponent } from './director/director.component';
 import { DetailsComponent } from './details/details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+//The authentication guard restricts access to routes for users who are not logged in
+import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
-  { path: 'movies', component: MovieCardComponent },
-  { path: 'profile', component: UserProfileComponent },
+  { path: 'movies', component: MovieCardComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -62,7 +68,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MatIconModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

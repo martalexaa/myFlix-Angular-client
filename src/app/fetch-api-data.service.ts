@@ -184,4 +184,17 @@ export class FetchApiDataService {
     }
     return throwError('Something bad happened; please try again later.');
   }
+
+  //This function checks if the user is logged in and returns true or false
+  private loggedInStatus = false;
+  setloggedInStatus(token: any) {
+    if (token) {
+      this.loggedInStatus = true;
+    }
+    if (!token) {
+      this.loggedInStatus = false;
+    }
+
+    return this.loggedInStatus;
+  }
 }

@@ -1,4 +1,5 @@
 .app-nav-bar {
+  top: 0px;
   position: fixed;
   display: flex;
   align-items: center;
@@ -15,11 +16,19 @@ button {
   margin-top: 15px;
   padding: 10px;
 
+  @media screen and (min-width: 576px) {
+    font-size: 22px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 25px;
   }
 
   @media screen and (min-width: 992px) {
     font-size: 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 35px;
   }
 }

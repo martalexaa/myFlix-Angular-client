@@ -7,8 +7,33 @@
 
 .genre-dialog-title {
   margin-left: 20px;
+  font-size: 28px;
 }
 
 .genre-dialog-content {
   margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Small screens (smaller than 640px) */
+@media screen and (max-width: 639px) {
+  .genre-dialog-title {
+    font-size: 22px;
+  }
+
+  .genre-dialog-content {
+    font-size: 18px;
+  }
+}
+
+/* Medium screens (641px to 1007px) */
+@media screen and (min-width: 641px) and (max-width: 1007px) {
+  .genre-dialog-title {
+    font-size: 32px;
+  }
+
+  .genre-dialog-content {
+    font-size: 24px;
+  }
 }
