@@ -7,6 +7,10 @@ import { DetailsComponent } from '../details/details.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * Component representing a movie card.
+ * @class
+ */
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -26,6 +30,12 @@ export class MovieCardComponent implements OnInit {
     this.getFavorites();
   }
 
+  /**
+   * Fetches all movies using FetchApiDataService.getAllMovies().
+   * @method
+   * @private
+   * @returns {any[]} An array of movie objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -35,8 +45,10 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Fetch all movies with FetchApiDataService.getAllMovies()
-   * @returns movies in an array of objects
+   * Fetches the user's favorite movies using FetchApiDataService.getUser().
+   * @method
+   * @private
+   * @returns {any[]} An array of favorite movie objects
    */
   getFavorites(): any {
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -46,9 +58,11 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Check if a movie id is included in the user's favorites
-   * @param id
-   * @returns a boolean value
+   * Checks if a movie ID is included in the user's favorites.
+   * @method
+   * @public
+   * @param {string} id - The movie ID
+   * @returns {boolean} A boolean value indicating if the movie is a favorite or not
    */
   isFavorite(id: string): boolean {
     return this.favorites.includes(id);
@@ -68,8 +82,11 @@ export class MovieCardComponent implements OnInit {
   }
 
   /**
-   * Remove one movie id from the user's favorites with FetchApiDataService.removeFavoriteMovie()
-   * @param id
+   * Removes a movie ID from the user's favorites using FetchApiDataService.removeFavoriteMovie().
+   * @method
+   * @public
+   * @param {string} id - The movie ID
+   * @returns {void}
    */
   removeFromFavorites(id: string): void {
     this.fetchApiData.deleteFavMovie(id).subscribe((resp: any) => {
@@ -80,6 +97,14 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a dialog for displaying genre details.
+   * @method
+   * @public
+   * @param {string} name - The genre name
+   * @param {string} description - The genre description
+   * @returns {void}
+   */
   openGenre(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
@@ -90,6 +115,15 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a dialog for displaying director details.
+   * @method
+   * @public
+   * @param {string} name - The director's name
+   * @param {string} bio - The director's bio
+   * @param {string} birthday - The director's birth year
+   * @returns {void}
+   */
   openDirector(name: string, bio: string, birthday: string): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -101,6 +135,14 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a dialog for displaying movie details.
+   * @method
+   * @public
+   * @param {string} title - The movie title
+   * @param {string} description - The movie description
+   * @returns {void}
+   */
   openDetails(title: string, description: string): void {
     this.dialog.open(DetailsComponent, {
       data: {

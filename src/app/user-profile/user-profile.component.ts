@@ -4,6 +4,12 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { formatDate } from '@angular/common';
 
+/**
+ * This component represents the user profile which fetch user information from the API.
+ * The user can update their data or delete their account.
+ * @class
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -26,11 +32,23 @@ export class UserProfileComponent implements OnInit {
     private router: Router
   ) {}
 
+  /**
+   * Lifecycle hook that is called after the component has been initialized.
+   * It is used to perform component initialization logic.
+   * @method
+   * @public
+   * @returns {void}
+   */
   ngOnInit(): void {
     this.getUserInfo();
   }
 
-  // Fetch user data via API
+  /**
+   * Fetches user information from the API and updates the component's data.
+   * @method
+   * @private
+   * @returns {void}
+   */
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -48,7 +66,12 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // Update user data, such as username, password, email, or birthday
+  /**
+   * Updates user information, such as username, password, email, or birthday, via the API.
+   * @method
+   * @public
+   * @returns {void}
+   */
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.updatedUser).subscribe((result) => {
       console.log(result);
@@ -73,7 +96,12 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // Delete user data for the user that is logged in
+  /**
+   * Deletes user account and data for the logged in user.
+   * @method
+   * @public
+   * @returns {void}
+   */
   deleteAccount(): void {
     if (confirm('All your data will be lost - this cannnot be undone!')) {
       this.router.navigate(['welcome']).then(() => {
