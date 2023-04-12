@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
+<p>In this repository I built the client-side for my app based on its <a href="https://github.com/martalexaa/movie_api">existing server-side code</a>.</p>
+
 <p>The MyFlixAngularClient is a web application that provides users with information about movies, directors, and genres. Users can create an account, log in, and save data about their favorite movies.</p>
   <p>The application allows users to browse through a collection of movies, view details about each movie, and access additional information about the director and genre of the movie.</p>
   <h2>User Stories</h2>
